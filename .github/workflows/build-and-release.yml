@@ -53,7 +53,7 @@ jobs:
 
       - name: Download and Validate IPA
         run: |
-          wget "https://github.com/CABNlT/EeveeSpotifyRevivedPublic/releases/download/untagged-f0350b0ccc379a216056/not-spotify.ipa" --no-verbose -O ${{ github.workspace }}/spotify.ipa
+          wget "https://github.com/CABNlT/EeveeSpotifyRevivedPublic/releases/download/normal/not-spotify.ipa" --no-verbose -O ${{ github.workspace }}/spotify.ipa
           file_type=$(file --mime-type -b ${{ github.workspace }}/spotify.ipa)
           if [[ "$file_type" != "application/x-ios-app" && "$file_type" != "application/zip" ]]; then
             echo "::error::Validation failed: The downloaded file is not a valid IPA. Detected type: $file_type."
