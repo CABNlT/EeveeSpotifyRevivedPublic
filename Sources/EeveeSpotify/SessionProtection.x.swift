@@ -103,7 +103,7 @@ class SessionServiceImplHook: ClassHook<NSObject> {
         let elapsed = Int(Date().timeIntervalSince(tweakInitTime))
         if Thread.isMainThread {
             writeDebugLog("[SESSION] Allowed userInitiatedLogout at \(elapsed)s (main thread)")
-            SPTAuthSessionHook.allowLogout = true
+            SPTAuthSessionHook.allowLogout = false
             orig.userInitiatedLogout()
             DispatchQueue.main.asyncAfter(deadline: .now() + 5) {
                 SPTAuthSessionHook.allowLogout = false
@@ -369,7 +369,7 @@ class URLSessionTaskResumeHook: ClassHook<NSObject> {
                 }
                 if elapsed > 30 && path.contains("signup/public") {
                     writeDebugLog("[NET] Cancelled signup/public at \(elapsedInt)s")
-                    task.cancel()
+                    //task.cancel()
                     return
                 }
                 if elapsed > 30 && path.contains("pses/screenconfig") {
