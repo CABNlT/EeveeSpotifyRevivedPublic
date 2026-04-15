@@ -46,7 +46,7 @@ jobs:
           make package FINALPACKAGE=1 THEOS_PACKAGE_SCHEME=rootless
           # Find the generated deb file
           DEB_PATH=$(find packages -name "*.deb" | head -n 1)
-          mv DEB_PATH ${{ github.workspace }}/eeveespotify.deb
+          mv $DEB_PATH ${{ github.workspace }}/eeveespotify.deb
 
       - name: Hide Sensitive Inputs
         uses: levibostian/action-hide-sensitive-inputs@v1
