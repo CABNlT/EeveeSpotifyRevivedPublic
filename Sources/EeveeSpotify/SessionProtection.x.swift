@@ -368,7 +368,7 @@ class URLSessionTaskResumeHook: ClassHook<NSObject> {
                     return
                 }
                 if elapsed > 30 && path.contains("signup/public") {
-                    writeDebugLog("[NET] Cancelled signup/public at \(elapsedInt)s")
+                    writeDebugLog("[NET] Didnt Cancel signup/public at \(elapsedInt)s \(path)")
                     //task.cancel()
                     return
                 }
