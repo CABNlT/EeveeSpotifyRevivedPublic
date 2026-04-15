@@ -1,4 +1,4 @@
-name: Build Rootless Deb
+name: Build Rootless Deb Then Release
 
 on:
   workflow_dispatch:
